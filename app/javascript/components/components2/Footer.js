@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react"
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className="footer">
+      <a href="/aboutus/">About Us</a>
+      <p>Flavian Fairway &copy; Blake, Tyler, Manny, and Immanuel</p>
+    </div>
   )
 }
 
