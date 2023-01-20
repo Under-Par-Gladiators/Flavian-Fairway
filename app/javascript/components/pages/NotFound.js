@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <div>Error! This page you have attempted to access does not exist :/</div>
   )
 }
 
