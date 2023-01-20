@@ -1,8 +1,14 @@
 class MetricsController < ApplicationController
 
+    # This method returns metrics ordered by wins and returns the top 10.
     def index
-        @metrics = Metric.all
+        @metrics = Metric.order(wins: :desc).limit(10)
         render json: @metrics
+    end
+
+    def random
+        metric = Metric.order
+        render json: metric
     end
 
     def create
