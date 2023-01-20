@@ -18,7 +18,7 @@ const App = (props) => {
   return (
 
       <BrowserRouter>
-        <Header />
+        <Header {...props} />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
