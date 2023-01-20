@@ -56,7 +56,7 @@ const Navigation = ({
           <DropdownToggle nav caret>
             Options
           </DropdownToggle>
-          <DropdownMenu right>
+          <DropdownMenu end>
             <DropdownItem>
               <NavItem>
                 <a href="/competitive">Competitive</a>
