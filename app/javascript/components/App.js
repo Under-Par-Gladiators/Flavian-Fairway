@@ -1,23 +1,38 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App = ({
-  logged_in,
-  current_user,
-  new_user_route,
-  sign_in_route,
-  sign_out_route
-}) => {
-  console.log("logged_in:", logged_in)
-  console.log("current_user:", current_user)
-  console.log("new_user_route:", new_user_route)
-  console.log("sign_in_route:", sign_in_route)
-  console.log("sign_out_route:", sign_out_route)
+import Header from "./components2/Header";
+import Footer from "./components2/Footer";
+
+import AboutUs from "./pages/AboutUs";
+import Competitive from "./pages/Competitive";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
+import LeaderBoard from "./pages/LeaderBoard";
+import MetricsNew from "./pages/MetricsNew";
+import MetricsShow from "./pages/MetricsShow";
+import MetricsEdit from "./pages/MetricsEdit";
+
+const App = (props) => {
+
   return (
-    <>
-      <h1>Flavian Fairway</h1>
-    </>
-  )
-}
 
-export default App
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/competitive" element={<Competitive />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
+          <Route path="/metricsnew" element={<MetricsNew />} />
+          <Route path="/metricsshow" element={<MetricsShow />} />
+          <Route path="/metricsedit" element={<MetricsEdit />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+
+  );
+};
+
+export default App;
