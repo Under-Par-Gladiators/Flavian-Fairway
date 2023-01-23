@@ -28,7 +28,7 @@ describe("<Navigation />", () => {
     expect(screen.getByText("Login")).toBeInTheDocument();
     userEvent.click(screen.getByText("Sign Up"));
     expect(screen.getByText("Sign Up")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Options"));
-    expect(screen.getByText("Options")).toBeInTheDocument();
+    userEvent.click(screen.getByText("Pages"));
+    expect(screen.getByText("Pages")).toBeInTheDocument();
   });
 });
