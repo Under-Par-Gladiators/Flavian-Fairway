@@ -17,7 +17,7 @@ const Navigation = ({
   sign_out_route,
 }) => {
   return (
-    <>
+    <div>
       <Nav>
         <NavItem>
           <NavLink to="/" className="nav-link">
@@ -26,8 +26,8 @@ const Navigation = ({
         </NavItem>
         {logged_in && (
           <NavItem>
-            <a href="/metricsedit" className="nav-link">
-              @username
+            <a href="/metricsshow" className="nav-link">
+              @{`${current_user}`}
             </a>
           </NavItem>
         )}
@@ -54,7 +54,7 @@ const Navigation = ({
         )}
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
-            Options
+            Pages
           </DropdownToggle>
           <DropdownMenu end>
             <DropdownItem>
@@ -70,7 +70,7 @@ const Navigation = ({
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
-    </>
+    </div>
   );
 };
 

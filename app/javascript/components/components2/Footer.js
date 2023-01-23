@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div>
       <a href="/aboutus/">About Us</a>
-      <p>Flavian Fairway &copy; Blake, Tyler, Manny, and Immanuel</p>
+      <p>&copy; 2023 Under Par Gladiators. All rights reserved</p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
