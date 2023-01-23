@@ -116,16 +116,14 @@ RSpec.describe "Metrics", type: :request do
       )
 
       get '/metrics'
-      topdog = Metric.where(wins: 21)
-      bottomdog = Metric.where(wins: 2)
 
       metric = JSON.parse(response.body)
       first_metric = metric.first
       second_metric = metric.last
       expect(response).to have_http_status(200)
       expect(metric.length).to eq 10
-      expect(metric.first).to eq topdog
-      expect(metric.last).to eq bottomdog
+      expect(metric.first['wins']).to eq 21
+      expect(metric.last['wins']).to eq 2
     end
   end
 
@@ -150,6 +148,15 @@ RSpec.describe "Metrics", type: :request do
 
     metric = Metric.last
     expect(metric.comment).to eq "this slapped"
+  end
+  it "cannot create metric without location" do
+
+    metric_params = {metric: {name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['location']).to include "can't be blank"
   end
 end
 end
