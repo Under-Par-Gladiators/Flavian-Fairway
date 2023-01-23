@@ -10,22 +10,9 @@ import LeaderBoard from "./pages/LeaderBoard";
 import MetricsNew from "./pages/MetricsNew";
 import MetricsShow from "./pages/MetricsShow";
 import MetricsEdit from "./pages/MetricsEdit";
-// import MockMetrics from "./MockMetrics"
+import MockMetrics from "./MockMetrics"
 
 const App = (props) => {
-    // const [metrics, setMetrics] = useState(MockMetrics)
-    // useEffect(() => {
-    //   readMetrics();
-    // }, []);
-  
-    // const readMetrics = () => {
-    //   fetch("/metrics")
-    //     .then((response) => response.json())
-    //     .then((payload) => {
-    //       setApartments(payload);
-    //     })
-    //     .catch((error) => console.log(error));
-    // };
 
   return (
     <BrowserRouter>
