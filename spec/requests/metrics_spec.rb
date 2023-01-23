@@ -158,6 +158,77 @@ RSpec.describe "Metrics", type: :request do
     json_response = JSON.parse(response.body)
     expect(json_response['location']).to include "can't be blank"
   end
+  it "cannot create metric without name_of_run" do
+
+    metric_params = {metric: {location:"bigbear", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['name_of_run']).to include "can't be blank"
+  end
+  it "cannot create metric without run_difficulty" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun" , elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['run_difficulty']).to include "can't be blank"
+  end
+  it "cannot create metric without elevation_change" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, average_speed:30, number_of_runs:3, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['elevation_change']).to include "can't be blank"
+  end
+  it "cannot create metric without average_speed" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, number_of_runs:3, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['average_speed']).to include "can't be blank"
+  end
+  it "cannot create metric without number_of_runs" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, comment:"this slapped", wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['number_of_runs']).to include "can't be blank"
+  end
+  it "cannot create metric without comment" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, wins:17, user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['comment']).to include "can't be blank"
+  end
+  it "cannot create metric without wins" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", user_id:user.id}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+    expect(json_response['wins']).to include "can't be blank"
+  end
+  it "cannot create metric without user_id" do
+
+    metric_params = {metric: {location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:17}}
+
+    post '/metrics', params: metric_params
+    expect(response).to have_http_status(422)  
+    json_response = JSON.parse(response.body)
+  end
 end
 end
 
