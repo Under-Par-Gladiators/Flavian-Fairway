@@ -22,7 +22,6 @@ const MetricsNew = () => {
 
   const handleSubmit = () => {
     setNewMetric(newMetric);
-    console.log(newMetric);
     navigate("/metricsshow");
   };
 
