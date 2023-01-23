@@ -6,18 +6,38 @@ class MetricsController < ApplicationController
         render json: @metrics
     end
 
-    def random
-        metric = Metric.order
+    # This method returns a random user from the DB for competitive page
+    def showrandom
+        metric = Metric.order("RANDOM()").first
         render json: metric
     end
 
     def create
+        metric = Metric.create(metric_params)
+        if metric.valid?
+            render json: metric
+        else
+            render json: metric.errors, status: 422
+        end
     end
 
     def update
+        metric = Metric.find(params[:id])
+        metric.update(metric_params)
+        if metric.valid?
+            rend json: metric
+        else
+            render json: metric.errors, status:422
+        end
     end
 
     def destroy 
+        metric = Metric.find(params[:id])
+        if metric.destroy
+            render json: metric
+        else
+            render json: metric.errors, status: unproccessable_entity
+        end
     end
 
     private
