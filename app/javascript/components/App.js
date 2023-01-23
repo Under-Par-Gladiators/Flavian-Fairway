@@ -10,8 +10,10 @@ import LeaderBoard from "./pages/LeaderBoard";
 import MetricsNew from "./pages/MetricsNew";
 import MetricsShow from "./pages/MetricsShow";
 import MetricsEdit from "./pages/MetricsEdit";
+import MockMetrics from "./MockMetrics"
 
 const App = (props) => {
+
   return (
     <BrowserRouter>
       <Header {...props} />
