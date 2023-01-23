@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Competitive = () => {
   return (
-    <div>Competitive</div>
-  )
-}
+    <div>
+      <h1>Competitive</h1>
+    </div>
+  );
+};
 
-export default Competitive
+export default Competitive;

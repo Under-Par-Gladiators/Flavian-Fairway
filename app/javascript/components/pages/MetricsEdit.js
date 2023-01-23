@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const MetricsEdit = () => {
   return (
-    <div>MetricsEdit</div>
-  )
-}
+    <div>
+      <h1>Metrics Edit</h1>
+    </div>
+  );
+};
 
-export default MetricsEdit
+export default MetricsEdit;

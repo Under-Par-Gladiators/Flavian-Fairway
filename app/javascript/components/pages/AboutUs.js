@@ -11,7 +11,7 @@ import {
 const AboutUs = () => {
   return (
     <div>
-      <h2>AboutUs</h2>
+      <h1>Who We Are</h1>
       <Card
         style={{
           width: "18rem",
@@ -24,8 +24,12 @@ const AboutUs = () => {
             Product Manager
           </CardSubtitle>
           <CardText>The Boss</CardText>
-          <Button>GitHub</Button>
-          <Button>linkedIn</Button>
+          <Button>
+            <a href="">GitHub</a>
+          </Button>
+          <Button>
+            <a href="">LinkedIn</a>
+          </Button>
         </CardBody>
       </Card>
       <Card
@@ -40,8 +44,12 @@ const AboutUs = () => {
             Project Manager
           </CardSubtitle>
           <CardText>The Other Boss</CardText>
-          <Button>GitHub</Button>
-          <Button>linkedIn</Button>
+          <Button>
+            <a href="">GitHub</a>
+          </Button>
+          <Button>
+            <a href="">LinkedIn</a>
+          </Button>
         </CardBody>
       </Card>
       <Card
@@ -56,8 +64,12 @@ const AboutUs = () => {
             Tech Lead
           </CardSubtitle>
           <CardText>Their Boss</CardText>
-          <Button>GitHub</Button>
-          <Button>linkedIn</Button>
+          <Button>
+            <a href="">GitHub</a>
+          </Button>
+          <Button>
+            <a href="">LinkedIn</a>
+          </Button>
         </CardBody>
       </Card>
       <Card
@@ -72,8 +84,12 @@ const AboutUs = () => {
             Design Lead
           </CardSubtitle>
           <CardText>The Boss, Me too</CardText>
-          <Button>GitHub</Button>
-          <Button>linkedIn</Button>
+          <Button>
+            <a href="">GitHub</a>
+          </Button>
+          <Button>
+            <a href="">LinkedIn</a>
+          </Button>
         </CardBody>
       </Card>
     </div>
