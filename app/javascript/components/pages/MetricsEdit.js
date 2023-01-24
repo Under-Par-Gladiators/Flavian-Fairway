@@ -8,7 +8,6 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
   const currentMetric = metrics?.find(
     (metric) => metric.id === +id
   );
-  console.log({currentMetric});
   const [editMetric, setEditMetric] = useState({
     location: currentMetric?.location,
     name_of_run: currentMetric?.name_of_run,
