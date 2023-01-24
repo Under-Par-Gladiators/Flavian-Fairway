@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { useParams } from "react-router-dom";
 
-const MetricsShow = ({ metrics }, args) => {
+const MetricsShow = ({ metrics }, args, deleteMetric) => {
   const { id } = useParams();
   const currentMetric = metrics?.find((metric) => metric.id === +id);
 
@@ -28,7 +28,7 @@ const MetricsShow = ({ metrics }, args) => {
       <p>Comment: {`${currentMetric?.comment}`}</p>
       <p>Wins: {`${currentMetric?.wins}`}</p>
       <Button color="secondary">
-        <a href="/metricsedit">Edit</a>
+        <a href="/metricsedit/:id">Edit</a>
       </Button>
       <Button color="secondary">
         <a href="/metricsnew">Create</a>
@@ -44,7 +44,7 @@ const MetricsShow = ({ metrics }, args) => {
           </ModalBody>
           <ModalFooter>
             <NavLink to="/metricsshow">
-              <Button color="danger" onClick={toggle}>
+              <Button color="danger" onClick={() => deleteMetric(`${metric.id}`)}>
                 Delete
               </Button>{" "}
             </NavLink>

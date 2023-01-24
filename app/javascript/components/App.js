@@ -56,14 +56,14 @@ const App = (props) => {
   const deleteMetric = (id) => {
     fetch(`/metrics/${id}`, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((response) => response.json())
       .then(() => readMetrics())
-      .catch((errors) => console.log("delete errors:", errors))
-  }
+      .catch((errors) => console.log("delete errors:", errors));
+  };
 
   return (
     <BrowserRouter>
@@ -75,7 +75,16 @@ const App = (props) => {
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/metricsnew" element={<MetricsNew {...props} />} />
         <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
-        <Route path="/metricsedit" element={<MetricsEdit />} />
+        <Route
+          path="/metricsedit/:id"
+          element={
+            <MetricsEdit
+              metrics={metrics}
+              updateMetric={updateMetric}
+              user={props.current_user}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
