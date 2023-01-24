@@ -9,6 +9,10 @@ class MetricsController < ApplicationController
     # This method returns a random user from the DB for competitive page
     def showrandom
         metric = Metric.order("RANDOM()").first
+        debugger
+        while current_user.id == Metric.user_id
+            metric = Metric.order("RANDOM()").first
+        end
         render json: metric
     end
 
@@ -25,7 +29,7 @@ class MetricsController < ApplicationController
         metric = Metric.find(params[:id])
         metric.update(metric_params)
         if metric.valid?
-            rend json: metric
+            render json: metric
         else
             render json: metric.errors, status:422
         end
