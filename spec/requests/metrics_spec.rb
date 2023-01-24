@@ -232,18 +232,18 @@ RSpec.describe "Metrics", type: :request do
 end
 
   describe "PATCH /update" do
-    let(:user){User.create(
+      it "updates a metric" do
+      user = User.create(
       email: "test@text.com",
       password: "password",
       password_confirmation: "password",
       username: "testymctestpants"
-    )}
+    )
     user = User.find_by username: "testymctestpants"
-    let(:metric){user.create_metric(
+    metric = user.create_metric(
       location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
-    )}
+    )
 
-      it "updates a metric" do
         metric_params = {metric: {
           location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1, user_id:user.id
           }}
@@ -253,94 +253,184 @@ end
         expect(response).to have_http_status(200)
         expect(updated_metric.wins).to eq 1
       end
-      # it 'cannot update a metric without location' do
-      #   metric_params = {metric: {
-      #     location:nil, name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1, user_id:user.id
-      #     }}
+      it 'cannot update a metric without location' do
+        User.create(
+      email: "test@text.com",
+      password: "password",
+      password_confirmation: "password",
+      username: "testymctestpants"
+    )
+    user = User.find_by username: "testymctestpants"
+    metric = user.create_metric(
+      location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+    )
+        metric_params = {metric: {
+          location:nil, name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1, user_id:user.id
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['location']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without name of run' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:nil, run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['location']).to include "can't be blank"
+      end
+      it 'cannot update a metric without name of run' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:nil, run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['name_of_run']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without run_difficulty' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:nil, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['name_of_run']).to include "can't be blank"
+      end
+      it 'cannot update a metric without run_difficulty' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:nil, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['run_difficulty']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without elevation change' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:nil, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['run_difficulty']).to include "can't be blank"
+      end
+      it 'cannot update a metric without elevation change' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:nil, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['elevation_change']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without average speed' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:nil, number_of_runs:3, comment:"this slapped", wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['elevation_change']).to include "can't be blank"
+      end
+      it 'cannot update a metric without average speed' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:nil, number_of_runs:3, comment:"this slapped", wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['average_speed']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without number of runs' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:nil, comment:"this slapped", wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['average_speed']).to include "can't be blank"
+      end
+      it 'cannot update a metric without number of runs' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:nil, comment:"this slapped", wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['number_of_runs']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without comment' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:nil, wins:1
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['number_of_runs']).to include "can't be blank"
+      end
+      it 'cannot update a metric without comment' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:nil, wins:1
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['comment']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without wins' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:nil
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['comment']).to include "can't be blank"
+      end
+      it 'cannot update a metric without wins' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:nil
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      #   json_response = JSON.parse(response.body)
-      #   expect(json_response['wins']).to include "can't be blank"
-      # end
-      # it 'cannot update a metric without user id' do
-      #   metric_params = {metric: {
-      #     location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1, user_id:nil
-      #     }}
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+        json_response = JSON.parse(response.body)
+        expect(json_response['wins']).to include "can't be blank"
+      end
+      it 'cannot update a metric without user id' do
+          user = User.create(
+          email: "test@text.com",
+          password: "password",
+          password_confirmation: "password",
+          username: "testymctestpants"
+        )
+        user = User.find_by username: "testymctestpants"
+        metric = user.create_metric(
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+        )
+        metric_params = {metric: {
+          location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:1, user_id:nil
+          }}
   
-      #   patch "/metrics/#{metric.id}", params: metric_params
-      #   expect(response).to have_http_status(422)
-      # end
+        patch "/metrics/#{metric.id}", params: metric_params
+        expect(response).to have_http_status(422)
+      end
   end
   describe "DESTROY /delete" do
     it "deletes a metric" do
@@ -360,4 +450,3 @@ end
     end
   end
 end
-
