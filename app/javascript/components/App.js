@@ -29,7 +29,7 @@ const App = (props) => {
 
   const createMetric = (metric) => {
     console.log(metric)
-    fetch("http://localhost:3000/metrics", {
+    fetch(`http://localhost:3000/metrics/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
