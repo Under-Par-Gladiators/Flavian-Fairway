@@ -26,7 +26,7 @@ const Navigation = ({
         </NavItem>
         {logged_in && (
           <NavItem>
-            <a href="/metricsshow" className="nav-link">
+            <a href="/metricsshow/:id" className="nav-link">
               @{`${current_user.username}`}
             </a>
           </NavItem>
