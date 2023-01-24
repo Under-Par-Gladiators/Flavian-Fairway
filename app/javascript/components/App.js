@@ -28,8 +28,7 @@ const App = (props) => {
   };
 
   const createMetric = (metric) => {
-    console.log(metric)
-    fetch(`http://localhost:3000/metrics/${id}`, {
+    fetch(`/metrics/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,8 +41,7 @@ const App = (props) => {
   };
 
   const updateMetric = (metric, id) => {
-    console.log(metric, id)
-    fetch(`http://localhost:3000/metrics/${id}`, {
+    fetch(`/metrics/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +54,7 @@ const App = (props) => {
   };
 
   const deleteMetric = (id) => {
-    fetch(`http://localhost:3000/metrics/${id}`, {
+    fetch(`/metrics/${id}`, {
       headers: {
         "Content-Type": "application/json"
       },
