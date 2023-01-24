@@ -21,8 +21,8 @@ const App = (props) => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/competitive" element={<Competitive />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
-        <Route path="/metricsnew" element={<MetricsNew />} />
-        <Route path="/metricsshow" element={<MetricsShow />} />
+        <Route path="/metricsnew" element={<MetricsNew {...props} />} />
+        <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
         <Route path="/metricsedit" element={<MetricsEdit />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

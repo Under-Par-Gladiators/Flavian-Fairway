@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-const MetricsNew = () => {
+const MetricsNew = ({ current_user }) => {
   const navigate = useNavigate();
 
   const [newMetric, setNewMetric] = useState({
@@ -22,7 +22,7 @@ const MetricsNew = () => {
 
   const handleSubmit = () => {
     setNewMetric(newMetric);
-    navigate("/metricsshow");
+    navigate("/metricsshow/:id");
   };
 
   return (
