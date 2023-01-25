@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 const LeaderBoard = () => {
   return (
     <div>
-      <Table hover size="" striped>
+      <Table hover size="">
         <thead>
           <tr>
             <th>#</th>
@@ -13,6 +13,7 @@ const LeaderBoard = () => {
             <th>Average Speed</th>
           </tr>
         </thead>
+
         <tbody>
           <tr>
             <th scope="row">1</th>

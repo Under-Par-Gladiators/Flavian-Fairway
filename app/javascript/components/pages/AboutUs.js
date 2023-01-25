@@ -43,7 +43,14 @@ const AboutUs = () => {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             Project Manager
           </CardSubtitle>
-          <CardText>The Other Boss</CardText>
+          <CardText>
+            My name is Tyler Cahoon-Kasheta, and I currently hail from the
+            Massachusetts Peninsula called Cape Cod. I come from a helicopter
+            maintenance background, turning wrenches and trying not to drop
+            washers high up on the main rotor blades. My time now is spent
+            developing creative and useful web applications, so long as the
+            internet is operational.
+          </CardText>
           <Button>
             <a href="">GitHub</a>
           </Button>
@@ -63,7 +70,16 @@ const AboutUs = () => {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             Tech Lead
           </CardSubtitle>
-          <CardText>Their Boss</CardText>
+          <CardText>
+            Hey, my name is Manny and I am a full stack web developer based in
+            San Diego, CA who has always been passionate about computers,
+            gaming, and building things. Previous work in the food service
+            industry has solidified my communication, conflict resolution, and
+            problem-solving skills while also placing an emphasis on teamwork.
+            Moving forward I plan to find myself in a tech position in a
+            suitable industry, where I will create amazing pieces of work with
+            my colleagues. Stay tuned to see what I’m doing!
+          </CardText>
           <Button>
             <a href="">GitHub</a>
           </Button>

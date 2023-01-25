@@ -5,9 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const MetricEdit = ({ metrics, updateMetric, user }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const currentMetric = metrics?.find(
-    (metric) => metric.id === +id
-  );
+  const currentMetric = metrics?.find((metric) => metric.id === +id);
   const [editMetric, setEditMetric] = useState({
     location: currentMetric?.location,
     name_of_run: currentMetric?.name_of_run,

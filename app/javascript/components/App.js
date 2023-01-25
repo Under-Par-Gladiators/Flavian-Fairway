@@ -14,6 +14,7 @@ import MockMetrics from "./MockMetrics";
 
 const App = (props) => {
   const [metrics, setMetrics] = useState([]);
+
   useEffect(() => {
     readMetrics();
   }, []);
@@ -69,16 +70,26 @@ const App = (props) => {
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home {...props} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/competitive" element={<Competitive />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/metricsnew" element={<MetricsNew {...props} />} />
-        <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
+        <Route
+          path="/metricsshow/:id"
+          element={
+            <MetricsShow
+              metrics={metrics}
+              {...props}
+              deleteMetric={deleteMetric}
+            />
+          }
+        />
         <Route
           path="/metricsedit/:id"
           element={
             <MetricsEdit
+              {...props}
               metrics={metrics}
               updateMetric={updateMetric}
               user={props.current_user}
