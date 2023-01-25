@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import MetricsNew from "./metricsnew";
+import MetricsNew from "./MetricsNew";
 import { BrowserRouter } from "react-router-dom";
 
 describe("<MetricsNew />", () => {
