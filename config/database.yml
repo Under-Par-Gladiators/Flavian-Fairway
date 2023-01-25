@@ -80,7 +80,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: flavian_fairway_production
-  username: flavian_fairway
-  password: <%= ENV["FLAVIAN_FAIRWAY_DATABASE_PASSWORD"] %>
+  <<: *defaulturl: <%= ENV['DATABASE_URL'] %>
