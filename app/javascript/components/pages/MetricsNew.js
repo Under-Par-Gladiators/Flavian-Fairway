@@ -27,6 +27,7 @@ const MetricsNew = ({ current_user }) => {
 
   return (
     <>
+      <h1>Create Metrics</h1>
       <Form>
         <FormGroup>
           <Label for="location">Location</Label>

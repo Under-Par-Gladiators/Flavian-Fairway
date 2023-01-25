@@ -44,7 +44,7 @@ const MetricsShow = ({ metrics }, args, deleteMetric) => {
           </ModalBody>
           <ModalFooter>
             <NavLink to="/metricsshow">
-              <Button color="danger" onClick={() => deleteMetric(`${metric.id}`)}>
+              <Button color="danger" onClick={() => deleteMetric(`${metric}`)}>
                 Delete
               </Button>{" "}
             </NavLink>

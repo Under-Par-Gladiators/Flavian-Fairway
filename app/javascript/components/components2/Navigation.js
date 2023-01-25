@@ -24,20 +24,6 @@ const Navigation = ({
             Flavian Fairway
           </NavLink>
         </NavItem>
-        {logged_in && (
-          <NavItem>
-            <a href="/metricsshow/:id" className="nav-link">
-              @{`${current_user.username}`}
-            </a>
-          </NavItem>
-        )}
-        {logged_in && (
-          <NavItem>
-            <a href={sign_out_route} className="nav-link">
-              Sign Out
-            </a>
-          </NavItem>
-        )}
         {!logged_in && (
           <NavItem>
             <a href={sign_in_route} className="nav-link">
@@ -52,23 +38,53 @@ const Navigation = ({
             </a>
           </NavItem>
         )}
-        <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
-            Pages
-          </DropdownToggle>
-          <DropdownMenu end>
-            <DropdownItem>
-              <NavItem>
-                <a href="/competitive">Competitive</a>
-              </NavItem>
-            </DropdownItem>
-            <DropdownItem>
-              <NavItem>
-                <a href="/leaderboard">Leaderboard</a>
-              </NavItem>
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
+        {!logged_in && (
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>
+              Pages
+            </DropdownToggle>
+            <DropdownMenu end>
+              <DropdownItem>
+                <NavItem>
+                  <a href="/leaderboard">Leaderboard</a>
+                </NavItem>
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        )}
+        {logged_in && (
+          <NavItem>
+            <a href="/metricsshow/:id" className="nav-link">
+              @{`${current_user.username}`}
+            </a>
+          </NavItem>
+        )}
+        {logged_in && (
+          <NavItem>
+            <a href={sign_out_route} className="nav-link">
+              Sign Out
+            </a>
+          </NavItem>
+        )}
+        {logged_in && (
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>
+              Pages
+            </DropdownToggle>
+            <DropdownMenu end>
+              <DropdownItem>
+                <NavItem>
+                  <a href="/competitive">Competitive</a>
+                </NavItem>
+              </DropdownItem>
+              <DropdownItem>
+                <NavItem>
+                  <a href="/leaderboard">Leaderboard</a>
+                </NavItem>
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        )}
       </Nav>
     </div>
   );
