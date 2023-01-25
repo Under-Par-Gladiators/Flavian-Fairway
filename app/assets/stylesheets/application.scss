@@ -16,10 +16,16 @@
 
 @import "bootstrap";
 
+.competeText {
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
 
 .cardLine {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 5vh;
 }

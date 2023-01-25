@@ -27,16 +27,6 @@ const App = (props, current_user) => {
       .catch((error) => console.log(error));
   };
 
-  // const showRandom = () => {
-  //   fetch(`/metrics/${id}`)
-  //   console.log("showRandom")
-  //     .then((response) => response.json())
-  //     .then((payload) => {
-  //       setMetrics(payload);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
   const createMetric = (metric) => {
     fetch(`/metrics/${id}`, {
       method: "POST",
@@ -82,7 +72,7 @@ const App = (props, current_user) => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} />} />
+        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} updateMetric={updateMetric}/>} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/metricsnew" element={<MetricsNew {...props} />} />
         <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
