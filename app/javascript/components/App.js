@@ -12,7 +12,7 @@ import MetricsShow from "./pages/MetricsShow";
 import MetricsEdit from "./pages/MetricsEdit";
 import MockMetrics from "./MockMetrics";
 
-const App = (props) => {
+const App = (props, current_user) => {
   const [metrics, setMetrics] = useState([]);
   useEffect(() => {
     readMetrics();
@@ -26,6 +26,16 @@ const App = (props) => {
       })
       .catch((error) => console.log(error));
   };
+
+  // const showRandom = () => {
+  //   fetch(`/metrics/${id}`)
+  //   console.log("showRandom")
+  //     .then((response) => response.json())
+  //     .then((payload) => {
+  //       setMetrics(payload);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   const createMetric = (metric) => {
     fetch(`/metrics/${id}`, {
@@ -66,12 +76,13 @@ const App = (props) => {
   }
 
   return (
+    <>
     <BrowserRouter>
       <Header {...props} />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/competitive" element={<Competitive />} />
+        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/metricsnew" element={<MetricsNew {...props} />} />
         <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
@@ -80,6 +91,7 @@ const App = (props) => {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   );
 };
 
