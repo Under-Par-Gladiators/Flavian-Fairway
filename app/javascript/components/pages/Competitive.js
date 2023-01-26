@@ -1,71 +1,143 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardHeader, ListGroup, ListGroupItem } from "reactstrap";
 
-const Competitive = ({logged_in, current_user, metrics}) => {
+const Competitive = ({logged_in, current_user, metrics, updateMetric,}) => {
   // This defines the users metrics that will appear on the left side.
   const yourMetric = metrics?.find(
     (metric) => metric.user_id === current_user.id
   );
 
   // This code defines all the state dependent variables
-  const [updateMetric, setUpdateMetric] = useState(yourMetric)
+  const [updatedMetric, setUpdatedMetric] = useState(null)
   const [randoMetrics, setRandoMetrics] = useState(null)
   const [winText, setWinText] = useState(null)
-  const [counter1, setCounter1] = useState(0)
-  const [counter2, setCounter2] = useState(0)
+  const [counter, setCounter] = useState(0)
+  const [buttonCounter, setButtonCounter] = useState(0)
+  const [runText, setRunText] = useState("???")
+  const [difficultyText, setDifficultyText] = useState("???")
+  const [elevationText, setElevText] = useState("???")
+  const [speedText, setSpeedText] = useState("???")
+  const [totalrunsText, setTotalRunsText] = useState("???")
 
   // This code uses the showRandom model method to select a random metrics set from database.
   const showRandom = () => {
-    fetch("/random")
+    return fetch("/random")
       .then((response) => response.json())
       .then((payload) => {
         setRandoMetrics(payload);
       })
       .catch((error) => console.log(error));
   };
-
   // Code below is all functions that this page will perform
-  async function handleClick () {
-     await showRandom();
-     difficultyLogic(yourMetric.run_difficulty, randoMetrics.run_difficulty);
-     elevationLogic(yourMetric.elevation_change, randoMetrics.elevation_change);
-     speedLogic(yourMetric.average_speed, randoMetrics.average_speed);
-     numberLogic(yourMetric.number_of_runs, randoMetrics.number_of_runs);
 
-     console.log(counter1);
-     console.log(counter2)
+  const handleClick = () => {
+        difficultyLogic();
+        addText()
   }
 
-  const difficultyLogic = (a, b) => {
-      if (a > b) {
-      return setCounter1(counter1 + 1)
+  useEffect(() => {
+    if (buttonCounter === 1) {
+      elevationLogic()
+    } else if (buttonCounter === 2) {
+      speedLogic()
+    } else if (buttonCounter === 3) {
+      totalRunsLogic()
+    } else if (buttonCounter === 4) {
+      winLogic()
+    } 
+  }, [buttonCounter])
+
+  useEffect(() => {
+    if (updatedMetric !== null) {
+      shipUpdate()
+    }
+  }, [updatedMetric])
+
+  const difficultyLogic = () => {
+    if (yourMetric.run_difficulty > randoMetrics.run_difficulty) {
+      counterPlus()
+      buttonCounterPlus()
     } else {
-      return setCounter2(counter2 + 1)
+      counterMinus()
+      buttonCounterPlus()
     }
   }
-  const elevationLogic = (a, b) => {
-    if (a > b) {
-      setCounter1(counter1 + 1)
+  const elevationLogic = () => {
+    if (yourMetric.elevation_change > randoMetrics.elevation_change) {
+      counterPlus()
+      buttonCounterPlus()
     } else {
-      setCounter2(counter2 + 1)
+      counterMinus()
+      buttonCounterPlus()
     }
   }
-  const speedLogic = (a ,b) => {
-    if (a > b) {
-      setCounter1(counter1 + 1)
+  const speedLogic = () => {
+    if (yourMetric.average_speed > randoMetrics.average_speed) {
+      counterPlus()
+      buttonCounterPlus()
     } else {
-      setCounter2(counter2 + 1)
+      counterMinus()
+      buttonCounterPlus()
     }
   }
-  const numberLogic = (a, b) => {
-    if (a > b) {
-      setCounter1(counter1 + 1)
+  const totalRunsLogic = () => {
+    if (yourMetric.number_of_runs > randoMetrics.number_of_runs) {
+      counterPlus()
+      buttonCounterPlus()
     } else {
-      setCounter2(counter2 + 1)
+      counterMinus()
+      buttonCounterPlus()
     }
   }
 
-  const winner = () => {}
+  const winLogic = () => {
+    if (counter > 0) {
+      setWinText("Victory! Wins + 1")
+      prepUpdate()
+      buttonCounterPlus()
+    } else {
+      setWinText("Defeat, try again tomorrow")
+    }
+  }
+
+  const prepUpdate = () => {
+    setUpdatedMetric({
+      location: yourMetric.location,
+      name_of_run: yourMetric.name_of_run,
+      run_difficulty: yourMetric.run_difficulty,
+      elevation_change: yourMetric.elevation_change,
+      average_speed: yourMetric.average_speed,
+      number_of_runs: yourMetric.number_of_runs,
+      comment: yourMetric.comment,
+      wins: yourMetric.wins + 1,
+      user_id: yourMetric.user_id
+    })
+  }
+  const shipUpdate = () => {
+    updateMetric(updatedMetric, yourMetric.id)
+  }
+
+  const addText = () => {
+    setRunText(randoMetrics.name_of_run)
+    setDifficultyText(randoMetrics.run_difficulty)
+    setElevText(randoMetrics.elevation_change)
+    setSpeedText(randoMetrics.average_speed)
+    setTotalRunsText(randoMetrics.number_of_runs)
+  }
+
+  const counterPlus = () => {
+    setCounter(counter + 1) 
+    console.log(counter)
+  }
+
+  const counterMinus = () => {
+    setCounter(counter - 1) 
+    console.log(counter)
+  }
+
+  const buttonCounterPlus = () => {
+    setButtonCounter(buttonCounter + 1)
+  }
 
   // everything below is what will be displayed for user.
 
@@ -95,16 +167,16 @@ const Competitive = ({logged_in, current_user, metrics}) => {
           <ListGroupItem>
             Run:{yourMetric.name_of_run}
           </ListGroupItem>
-          <ListGroupItem className="difficultyColor">
+          <ListGroupItem>
             Difficulty:{yourMetric.run_difficulty}
           </ListGroupItem>
-          <ListGroupItem className="elevationColor">
+          <ListGroupItem>
             Elevation change:{yourMetric.elevation_change}
           </ListGroupItem>
-          <ListGroupItem className="speedColor">
+          <ListGroupItem>
             Avg speed:{yourMetric.average_speed}
           </ListGroupItem>
-          <ListGroupItem className="numberColor">
+          <ListGroupItem>
             Total runs:{yourMetric.number_of_runs}
           </ListGroupItem>
           <ListGroupItem>
@@ -113,7 +185,10 @@ const Competitive = ({logged_in, current_user, metrics}) => {
         </ListGroup>
       </Card>
       )}
-      <button onClick={handleClick}>Compete!</button>
+      <div className = "battleButtons">
+      <button onClick={showRandom} disabled={randoMetrics !== null}>Find opponent</button>
+      <button onClick={handleClick} disabled={randoMetrics === null || buttonCounter !== 0}>Compete!</button>
+      </div>
       {randoMetrics && (
         <Card
         style={{
@@ -121,26 +196,26 @@ const Competitive = ({logged_in, current_user, metrics}) => {
         }}
       >
         <CardHeader>
-          {current_user.username}
+          Opponent
         </CardHeader>
         <ListGroup flush>
           <ListGroupItem>
             Location:{randoMetrics.location}
           </ListGroupItem>
           <ListGroupItem>
-            Run:{randoMetrics.name_of_run}
+            Run:{runText}
           </ListGroupItem>
           <ListGroupItem>
-            Difficulty:{randoMetrics.run_difficulty}
+            Difficulty:{difficultyText}
           </ListGroupItem>
           <ListGroupItem>
-            Elevation change:{randoMetrics.elevation_change}
+            Elevation change:{elevationText}
           </ListGroupItem>
           <ListGroupItem>
-            Avg speed:{randoMetrics.average_speed}
+            Avg speed:{speedText}
           </ListGroupItem>
           <ListGroupItem>
-            Total runs:{randoMetrics.number_of_runs}
+            Total runs:{totalrunsText}
           </ListGroupItem>
           <ListGroupItem>
             Smack talk:{randoMetrics.comment}

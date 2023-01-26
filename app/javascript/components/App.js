@@ -10,7 +10,6 @@ import LeaderBoard from "./pages/LeaderBoard";
 import MetricsNew from "./pages/MetricsNew";
 import MetricsShow from "./pages/MetricsShow";
 import MetricsEdit from "./pages/MetricsEdit";
-import MockMetrics from "./MockMetrics";
 
 const App = (props, current_user) => {
   const [metrics, setMetrics] = useState([]);
@@ -72,7 +71,7 @@ const App = (props, current_user) => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} updateMetric={updateMetric}/>} />
+        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} updateMetric={updateMetric} />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/metricsnew" element={<MetricsNew {...props} />} />
         <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />

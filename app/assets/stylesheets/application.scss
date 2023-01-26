@@ -22,6 +22,12 @@
     margin-top: 3vh;
 }
 
+.battleButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .cardLine {
     display: flex;
     justify-content: space-evenly;
