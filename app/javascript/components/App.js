@@ -29,7 +29,7 @@ const App = (props) => {
   };
 
   const createMetric = (metric) => {
-    fetch(`/metrics/${id}`, {
+    fetch("/metrics", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,14 +74,17 @@ const App = (props) => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/competitive" element={<Competitive />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
-        <Route path="/metricsnew" element={<MetricsNew {...props} />} />
+        <Route
+          path="/metricsnew"
+          element={<MetricsNew {...props} createMetric={createMetric} />}
+        />
         <Route
           path="/metricsshow/:id"
           element={
             <MetricsShow
               metrics={metrics}
               {...props}
-              deleteMetric={deleteMetric}
+              // deleteMetric={deleteMetric}
             />
           }
         />
@@ -89,7 +92,7 @@ const App = (props) => {
           path="/metricsedit/:id"
           element={
             <MetricsEdit
-              {...props}
+              // {...props}
               metrics={metrics}
               updateMetric={updateMetric}
               user={props.current_user}
