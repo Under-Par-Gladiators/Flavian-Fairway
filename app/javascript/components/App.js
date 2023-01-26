@@ -13,6 +13,7 @@ import MetricsEdit from "./pages/MetricsEdit";
 
 const App = (props, current_user) => {
   const [metrics, setMetrics] = useState([]);
+
   useEffect(() => {
     readMetrics();
   }, []);
@@ -27,7 +28,7 @@ const App = (props, current_user) => {
   };
 
   const createMetric = (metric) => {
-    fetch(`/metrics/${id}`, {
+    fetch("/metrics", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,27 +56,49 @@ const App = (props, current_user) => {
   const deleteMetric = (id) => {
     fetch(`/metrics/${id}`, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((response) => response.json())
       .then(() => readMetrics())
-      .catch((errors) => console.log("delete errors:", errors))
-  }
+      .catch((errors) => console.log("delete errors:", errors));
+  };
 
   return (
     <>
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home {...props} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/competitive" element={<Competitive {...props} metrics={metrics} updateMetric={updateMetric} />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
-        <Route path="/metricsnew" element={<MetricsNew {...props} />} />
-        <Route path="/metricsshow/:id" element={<MetricsShow {...props} />} />
-        <Route path="/metricsedit" element={<MetricsEdit />} />
+        <Route
+          path="/metricsnew"
+          element={<MetricsNew {...props} createMetric={createMetric} />}
+        />
+        <Route
+          path="/metricsshow/:id"
+          element={
+            <MetricsShow
+              metrics={metrics}
+              {...props}
+              // deleteMetric={deleteMetric}
+            />
+          }
+        />
+        <Route
+          path="/metricsedit/:id"
+          element={
+            <MetricsEdit
+              // {...props}
+              metrics={metrics}
+              updateMetric={updateMetric}
+              user={props.current_user}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

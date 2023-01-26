@@ -16,6 +16,11 @@ class MetricsController < ApplicationController
         end
     end
 
+    def show
+        metric = Metric.find(params[:id])
+        render json: metric
+    end
+
     def create
         metric = Metric.create(metric_params)
         if metric.valid?

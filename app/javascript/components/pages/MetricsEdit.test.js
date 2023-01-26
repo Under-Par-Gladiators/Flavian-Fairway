@@ -1,20 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import MetricsNew from "./MetricsNew";
+import MetricsEdit from "./MetricsEdit";
 import { BrowserRouter } from "react-router-dom";
 
-describe("<MetricsNew />", () => {
+describe("<MetricsEdit />", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <MetricsNew />
+        <MetricsEdit />
       </BrowserRouter>
     );
   });
 
   it("Has a form with correct labels", () => {
     const formLocation = screen.getByText("Location");
-    expect(formLocation.getAttribute("for")).toEqual("location");
+    expect(formLocation.getAttribute("For")).toEqual("location");
 
     const formNameOfRun = screen.getByText("Name of Run");
     expect(formNameOfRun.getAttribute("For")).toEqual("name_of_run");
