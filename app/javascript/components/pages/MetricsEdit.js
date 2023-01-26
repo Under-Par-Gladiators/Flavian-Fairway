@@ -22,8 +22,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
   };
 
   const handleSubmit = () => {
-    updateMetric(editMetric, currentMetric.id);
-    navigate(`/metricsshow/${currentMetric.id}`);
+    updateMetric(editMetric, currentMetric);
+    navigate("/metricsshow");
   };
 
   return (
@@ -98,16 +98,6 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
             placeholder="Comment Please?"
             type="number"
             value={editMetric?.comment}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="wins">Wins</Label>
-          <Input
-            name="wins"
-            onChange={handleChange}
-            placeholder="How many wins?"
-            type="number"
-            value={editMetric?.wins}
           />
         </FormGroup>
         <Button onClick={handleSubmit}>Submit New Metrics</Button>
