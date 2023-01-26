@@ -15,3 +15,23 @@
  */
 
 @import "bootstrap";
+
+.competeText {
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+
+.battleButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cardLine {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
