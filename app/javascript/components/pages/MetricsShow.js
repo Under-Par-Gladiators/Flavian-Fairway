@@ -10,13 +10,10 @@ import {
 import { useParams } from "react-router-dom";
 
 const MetricsShow = ({ metrics, current_user, logged_in }, args, deleteMetric) => {
-  console.log(metrics);
   const { id } = useParams();
   const currentMetric = metrics.find(
     (metric) => metric && metric.user_id === current_user.id
   );
-  console.log(current_user.id);
-  console.log(currentMetric);
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);

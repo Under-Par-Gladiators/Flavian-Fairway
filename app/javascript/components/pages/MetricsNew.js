@@ -23,7 +23,6 @@ const MetricsNew = ({ createMetric, current_user }) => {
 
   const handleSubmit = () => {
     createMetric(newMetric);
-    console.log(newMetric);
     navigate(`/metricsshow/${current_user.id}`);
   };
 
