@@ -3,9 +3,7 @@ class MetricsController < ApplicationController
     # This method returns metrics ordered by wins and returns the top 10.
     def index
         @metrics = Metric.order(wins: :desc)
-        @user = User.where(user.id == metric.user_id)
         render json: @metrics
-        render json: @user
     end
 
     # This method returns a random user from the DB for competitive page
@@ -16,6 +14,11 @@ class MetricsController < ApplicationController
         else
         render json: metric
         end
+    end
+
+    def usershow
+        user = User.all
+        render json: user
     end
 
     def show

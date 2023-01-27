@@ -18,6 +18,7 @@ const App = (props, current_user) => {
     readMetrics();
   }, []);
 
+
   const readMetrics = () => {
     fetch("/metrics")
       .then((response) => response.json())
@@ -26,6 +27,7 @@ const App = (props, current_user) => {
       })
       .catch((error) => console.log(error));
   };
+
 
   const createMetric = (metric) => {
     fetch("/metrics", {
