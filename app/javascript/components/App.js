@@ -72,7 +72,7 @@ const App = (props) => {
       <Routes>
         <Route exact path="/" element={<Home {...props} />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/competitive" element={<Competitive />} />
+        <Route path="/competitive" element={<Competitive {...props} metrics={metrics} updateMetric={updateMetric} />} />
         <Route
           path="/leaderboard"
           element={<LeaderBoard {...props} metrics={metrics} />}
