@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Metrics", type: :request do
   describe "GET /index" do
-    it "gets a list of top 10 metrics ordered by wins" do
+    it "gets a list of metrics ordered by wins" do
 
       User.create(
         email: "test@test.com",
@@ -121,15 +121,72 @@ RSpec.describe "Metrics", type: :request do
       first_metric = metric.first
       second_metric = metric.last
       expect(response).to have_http_status(200)
-      expect(metric.length).to eq 10
+      expect(metric.length).to eq 11
       expect(metric.first['wins']).to eq 21
-      expect(metric.last['wins']).to eq 2
+      expect(metric.last['wins']).to eq 0
     end
   end
 
-  describe "GET /showrandom" do
-  end
+  describe "GET /show" do 
+    it "pulls a single entry from the database" do 
+      User.create(
+        email: "test@test.com",
+        password: "password",
+        password_confirmation: "password",
+        username: "testymctestpants"
+      ) 
+      user1 = User.find_by username: "testymctestpants"
+      User.create(
+        email: "test@test2.com",
+        password: "password2",
+        password_confirmation: "password2",
+        username: "testymctestpants2"
+      ) 
+      user2 = User.find_by username: "testymctestpants2"
+     
+      user1.create_metric(
+        location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0
+      )
+      mrtest = user2.create_metric(
+        location:"bigbear", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:11
+      ) 
+      get "/show/#{mrtest.id}"
 
+      
+     
+      expect(response).to have_http_status(200)
+  
+  end
+end
+
+
+  describe "GET /usershow" do
+      it "gets a list of all users" do
+      User.create(
+        email: "test@test2.com",
+        password: "password2",
+        password_confirmation: "password2",
+        username: "testymctestpants2"
+      ) 
+      User.create(
+        email: "test@test3.com",
+        password: "password3",
+        password_confirmation: "password3",
+        username: "testymctestpants3"
+      ) 
+      User.create(
+        email: "test@test4.com",
+        password: "password4",
+        password_confirmation: "password4",
+        username: "testymctestpants4"
+      ) 
+      get '/usershow'
+
+      user = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+      expect(user.length).to eq 4
+      end  
+    end
 
   describe "POST /create"do
   User.create(
@@ -229,7 +286,6 @@ RSpec.describe "Metrics", type: :request do
     expect(response).to have_http_status(422)  
     json_response = JSON.parse(response.body)
   end
-end
 
   describe "PATCH /update" do
       it "updates a metric" do
@@ -447,6 +503,7 @@ end
       expect do 
         delete metric_url(metric)
       end.to change(Metric, :count).by(-1)
+    end
     end
   end
 end

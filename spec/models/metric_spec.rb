@@ -34,4 +34,9 @@ RSpec.describe Metric, type: :model do
     testy = Metric.create location: "here", name_of_run: "bigrun", run_difficulty: 3, elevation_change: 4000, average_speed: 30, number_of_runs: 3, comment: "this slapped", wins: nil, user_id:1
     expect(testy.errors[:wins]).to_not be_empty
   end
+  it "Throws an error if metric user_id is not unique" do
+    Metric.create location:"Shasta", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0, user_id:1
+    testy = Metric.create location:"Shasta", name_of_run:"bigrun", run_difficulty:3, elevation_change:4000, average_speed:30, number_of_runs:3, comment:"this slapped", wins:0, user_id:1
+    expect(testy.errors[:user_id]).to_not be_empty
+  end
 end
