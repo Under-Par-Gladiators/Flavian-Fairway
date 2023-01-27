@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1674859111108" clover="3.2.0">
+  <project timestamp="1674859111109" name="All files">
+    <metrics statements="139" coveredstatements="75" conditionals="50" coveredconditionals="19" methods="44" coveredmethods="14" elements="233" coveredelements="108" complexity="0" loc="139" ncloc="139" packages="2" files="10" classes="10"/>
+    <package name="components2">
+      <metrics statements="6" coveredstatements="6" conditionals="12" coveredconditionals="9" methods="3" coveredmethods="3"/>
+      <file name="Footer.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/components2/Footer.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="Header.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/components2/Header.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="Navigation.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/components2/Navigation.js">
+        <metrics statements="2" coveredstatements="2" conditionals="12" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages">
+      <metrics statements="133" coveredstatements="69" conditionals="38" coveredconditionals="10" methods="41" coveredmethods="11"/>
+      <file name="Competitive.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/Competitive.js">
+        <metrics statements="83" coveredstatements="34" conditionals="28" coveredconditionals="6" methods="20" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="94" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="138" count="1" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="144" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="230" count="1" type="stmt"/>
+      </file>
+      <file name="Home.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/Home.js">
+        <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+      <file name="LeaderBoard.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/LeaderBoard.js">
+        <metrics statements="13" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+      </file>
+      <file name="MetricsEdit.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/MetricsEdit.js">
+        <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+      <file name="MetricsNew.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/MetricsNew.js">
+        <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+      <file name="MetricsShow.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/MetricsShow.js">
+        <metrics statements="10" coveredstatements="7" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="1"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="NotFound.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/NotFound.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

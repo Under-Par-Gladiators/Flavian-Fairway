@@ -14,7 +14,7 @@ describe("<MetricsNew />", () => {
 
   it("Has a form with correct labels", () => {
     const formLocation = screen.getByText("Location");
-    expect(formLocation.getAttribute("for")).toEqual("location");
+    expect(formLocation.getAttribute("For")).toEqual("location");
 
     const formNameOfRun = screen.getByText("Name of Run");
     expect(formNameOfRun.getAttribute("For")).toEqual("name_of_run");
@@ -33,8 +33,5 @@ describe("<MetricsNew />", () => {
 
     const formComment = screen.getByText("Comment");
     expect(formComment.getAttribute("For")).toEqual("comment");
-
-    const formWins = screen.getByText("Wins");
-    expect(formWins.getAttribute("For")).toEqual("wins");
   });
 });
