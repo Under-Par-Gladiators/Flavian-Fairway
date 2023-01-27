@@ -9,7 +9,10 @@ import {
 } from "reactstrap";
 import { useParams } from "react-router-dom";
 
-const MetricsShow = ({ metrics, current_user, logged_in }, args, deleteMetric) => {
+const MetricsShow = (
+  { metrics, current_user, logged_in, deleteMetric },
+  args
+) => {
   const { id } = useParams();
   const currentMetric = metrics.find(
     (metric) => metric && metric.user_id === current_user.id
@@ -34,18 +37,15 @@ const MetricsShow = ({ metrics, current_user, logged_in }, args, deleteMetric) =
           <div>
             <h1>Metrics Show</h1>
             <p>Location: {currentMetric?.location}</p>
-            <p>Name of Run: {`${currentMetric?.name_of_run}`}</p>
-            <p>Run Difficulty: {`${currentMetric?.run_difficulty}`}</p>
-            <p>Elevation Change: {`${currentMetric?.elevation_change}`}</p>
-            <p>Average Speed: {`${currentMetric?.average_speed}`}</p>
-            <p>Number of Runs: {`${currentMetric?.number_of_runs}`}</p>
-            <p>Comment: {`${currentMetric?.comment}`}</p>
-            <p>Wins: {`${currentMetric?.wins}`}</p>
+            <p>Name of Run: {currentMetric?.name_of_run}</p>
+            <p>Run Difficulty: {currentMetric?.run_difficulty}</p>
+            <p>Elevation Change: {currentMetric?.elevation_change}</p>
+            <p>Average Speed: {currentMetric?.average_speed}</p>
+            <p>Number of Runs: {currentMetric?.number_of_runs}</p>
+            <p>Comment: {currentMetric?.comment}</p>
+            <p>Wins: {currentMetric?.wins}</p>
             <Button color="secondary">
-              <a href="/metricsedit/:id">Edit</a>
-            </Button>
-            <Button color="secondary">
-              <a href="/metricsnew">Create</a>
+              <a href={`/metricsedit/${currentMetric.id}`}>Edit</a>
             </Button>
             <div>
               <Button color="danger" onClick={toggle}>
@@ -57,9 +57,12 @@ const MetricsShow = ({ metrics, current_user, logged_in }, args, deleteMetric) =
                   Are you sure you want to delete your set of metrics?
                 </ModalBody>
                 <ModalFooter>
-                  <NavLink to="/metricsshow">
-                    <Button color="danger" onClick={() => deleteMetric(metric)}>
-                      Delete
+                  <NavLink to={`/metricsshow/${current_user.id}`}>
+                    <Button
+                      color="danger"
+                      onClick={() => deleteMetric(`${currentMetric.id}`)}
+                    >
+                      Confirm Delete
                     </Button>{" "}
                   </NavLink>
                   <Button color="secondary" onClick={toggle}>
