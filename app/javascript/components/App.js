@@ -98,7 +98,6 @@ const App = (props) => {
               {...props}
               metrics={metrics}
               updateMetric={updateMetric}
-              // user={props.current_user}
             />
           }
         />

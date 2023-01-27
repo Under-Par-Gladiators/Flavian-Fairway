@@ -8,10 +8,6 @@ class MetricsController < ApplicationController
         render json: @user
     end
 
-    def show
-        @metric = Metric.where
-    end
-
     # This method returns a random user from the DB for competitive page
     def showrandom
         metric = Metric.order("RANDOM()").first
