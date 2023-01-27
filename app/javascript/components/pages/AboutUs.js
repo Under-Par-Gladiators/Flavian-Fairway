@@ -15,6 +15,7 @@ const AboutUs = () => {
   return (
     <div>
       <h1>Who We Are</h1>
+      <div className='cardLine'>
       <Card
         style={{
           width: "18rem",
@@ -57,6 +58,7 @@ const AboutUs = () => {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             Project Manager
           </CardSubtitle>
+
           <CardText>
             My name is Tyler Cahoon-Kasheta, and I currently hail from the
             Massachusetts Peninsula called Cape Cod. I come from a helicopter
@@ -91,6 +93,7 @@ const AboutUs = () => {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             Tech Lead
           </CardSubtitle>
+
           <CardText>
             Hey, my name is Manny and I am a full stack web developer based in
             San Diego, CA who has always been passionate about computers,
@@ -127,6 +130,7 @@ const AboutUs = () => {
           <CardSubtitle className="mb-2 text-muted" tag="h6">
             Design Lead
           </CardSubtitle>
+
           <CardText>
             Transitioning into a new career. Have many concepts and ideas that
             can be brought fourth through technology. Passionate about
@@ -140,6 +144,7 @@ const AboutUs = () => {
           </Button>
         </CardBody>
       </Card>
+      </div>
     </div>
   );
 };
