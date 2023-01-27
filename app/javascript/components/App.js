@@ -10,9 +10,8 @@ import LeaderBoard from "./pages/LeaderBoard";
 import MetricsNew from "./pages/MetricsNew";
 import MetricsShow from "./pages/MetricsShow";
 import MetricsEdit from "./pages/MetricsEdit";
-import MockMetrics from "./MockMetrics";
 
-const App = (props) => {
+const App = (props, current_user) => {
   const [metrics, setMetrics] = useState([]);
 
   useEffect(() => {
@@ -67,6 +66,7 @@ const App = (props) => {
   };
 
   return (
+    <>
     <BrowserRouter>
       <Header {...props} />
       <Routes>
@@ -114,6 +114,7 @@ const App = (props) => {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   );
 };
 

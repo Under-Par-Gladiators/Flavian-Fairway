@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get '/random' => 'metrics#showrandom'
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
   root 'home#index'
-  get '/random' => 'metrics#showrandom'
+  # get '/random' => 'metrics#showrandom'
 end
