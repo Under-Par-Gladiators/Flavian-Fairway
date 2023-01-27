@@ -73,7 +73,10 @@ const App = (props) => {
         <Route exact path="/" element={<Home {...props} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/competitive" element={<Competitive />} />
-        <Route path="/leaderboard" element={<LeaderBoard />} />
+        <Route
+          path="/leaderboard"
+          element={<LeaderBoard {...props} metrics={metrics} />}
+        />
         <Route
           path="/metricsnew"
           element={<MetricsNew {...props} createMetric={createMetric} />}
@@ -84,7 +87,7 @@ const App = (props) => {
             <MetricsShow
               metrics={metrics}
               {...props}
-              // deleteMetric={deleteMetric}
+              deleteMetric={deleteMetric}
             />
           }
         />
@@ -92,10 +95,10 @@ const App = (props) => {
           path="/metricsedit/:id"
           element={
             <MetricsEdit
-              // {...props}
+              {...props}
               metrics={metrics}
               updateMetric={updateMetric}
-              user={props.current_user}
+              // user={props.current_user}
             />
           }
         />

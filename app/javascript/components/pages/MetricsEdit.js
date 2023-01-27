@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-const MetricEdit = ({ metrics, updateMetric, user }) => {
+const MetricEdit = ({ metrics, updateMetric, current_user }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const currentMetric = metrics?.find((metric) => metric.id === +id);
@@ -22,22 +22,21 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
   };
 
   const handleSubmit = () => {
-    updateMetric(editMetric, currentMetric);
-    navigate("/metricsshow");
+    updateMetric(editMetric, currentMetric.id);
+    navigate(`/metricsshow/${current_user.id}`);
   };
 
   return (
     <div>
       <h1>Edit Metrics</h1>
-      <Form>
+      <Form className="submitForm">
         <FormGroup>
           <Label for="location">Location</Label>
           <Input
             name="location"
             onChange={handleChange}
-            placeholder="What is your new metrics?"
             type="text"
-            value={editMetric?.location}
+            placeholder={currentMetric?.location}
           />
         </FormGroup>
         <FormGroup>
@@ -45,9 +44,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="name_of_run"
             onChange={handleChange}
-            placeholder="What is your name of run?"
             type="text"
-            value={editMetric?.name_of_run}
+            placeholder={currentMetric?.name_of_run}
           />
         </FormGroup>
         <FormGroup>
@@ -55,9 +53,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="run_difficulty"
             onChange={handleChange}
-            placeholder="What is your run difficulty?"
             type="text"
-            value={editMetric?.run_difficulty}
+            placeholder={currentMetric?.run_difficulty}
           />
         </FormGroup>
         <FormGroup>
@@ -65,9 +62,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="elevation_change"
             onChange={handleChange}
-            placeholder="Who was the elevation changer?"
             type="text"
-            value={editMetric?.elevation_change}
+            placeholder={currentMetric?.elevation_change}
           />
         </FormGroup>
         <FormGroup>
@@ -75,9 +71,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="average_speed"
             onChange={handleChange}
-            placeholder="What is your average speed?"
             type="text"
-            value={editMetric?.average_speed}
+            placeholder={currentMetric?.average_speed}
           />
         </FormGroup>
         <FormGroup>
@@ -85,9 +80,8 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="number_of_runs"
             onChange={handleChange}
-            placeholder=" Number of runs?"
             type="text"
-            value={editMetric?.number_of_runs}
+            placeholder={currentMetric?.number_of_runs}
           />
         </FormGroup>
         <FormGroup>
@@ -95,12 +89,13 @@ const MetricEdit = ({ metrics, updateMetric, user }) => {
           <Input
             name="comment"
             onChange={handleChange}
-            placeholder="Comment Please?"
-            type="number"
-            value={editMetric?.comment}
+            type="text"
+            placeholder={currentMetric?.comment}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Submit New Metrics</Button>
+        <Button onClick={handleSubmit} name="submit">
+          Submit New Metrics
+        </Button>
       </Form>
     </div>
   );
