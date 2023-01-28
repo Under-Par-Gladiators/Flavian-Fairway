@@ -14,7 +14,7 @@ const MetricsShow = (
   args
 ) => {
   const { id } = useParams();
-  const currentMetric = metrics.find(
+  const currentMetric = metrics?.find(
     (metric) => metric && metric.user_id === current_user.id
   );
 

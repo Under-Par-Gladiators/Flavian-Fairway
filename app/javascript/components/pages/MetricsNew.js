@@ -14,7 +14,7 @@ const MetricsNew = ({ createMetric, current_user }) => {
     number_of_runs: "",
     comment: "",
     wins: "0",
-    user_id: current_user.id,
+    user_id: current_user?.id,
   });
 
   const handleChange = (e) => {

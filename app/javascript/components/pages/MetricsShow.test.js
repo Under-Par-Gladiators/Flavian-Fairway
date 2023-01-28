@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import MetricsShow from "./MetricsShow";
 import { BrowserRouter } from "react-router-dom";
 
@@ -12,5 +12,20 @@ describe("<MetricsShow />", () => {
       </BrowserRouter>,
       div
     );
+  });
+  it("has specific items pertaining to metrics", () => {
+    render(
+      <BrowserRouter>
+        <MetricsShow />
+      </BrowserRouter>
+    );
+    expect(screen.getByText("Location:")).toBeInTheDocument();
+    expect(screen.getByText("Name of Run:")).toBeInTheDocument();
+    expect(screen.getByText("Run Difficulty:")).toBeInTheDocument();
+    expect(screen.getByText("Elevation Change:")).toBeInTheDocument();
+    expect(screen.getByText("Average Speed:")).toBeInTheDocument();
+    expect(screen.getByText("Number of Runs:")).toBeInTheDocument();
+    expect(screen.getByText("Comment:")).toBeInTheDocument();
+    expect(screen.getByText("Wins:")).toBeInTheDocument();
   });
 });

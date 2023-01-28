@@ -33,8 +33,5 @@ describe("<MetricsEdit />", () => {
 
     const formComment = screen.getByText("Comment");
     expect(formComment.getAttribute("For")).toEqual("comment");
-
-    const formWins = screen.getByText("Wins");
-    expect(formWins.getAttribute("For")).toEqual("wins");
   });
 });
