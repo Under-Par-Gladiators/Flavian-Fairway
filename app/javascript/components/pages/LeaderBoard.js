@@ -3,7 +3,7 @@ import { Table } from "reactstrap";
 
 const LeaderBoard = ({ metrics }) => {
   const leaderboard = metrics?.slice(0, 10);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     readUsers();
@@ -18,9 +18,8 @@ const LeaderBoard = ({ metrics }) => {
       .catch((error) => console.log(error));
   };
 
-
   return (
-    <div>
+    <div className="leaderboard-page">
       <Table hover size="">
         <thead>
           <tr>
@@ -33,10 +32,10 @@ const LeaderBoard = ({ metrics }) => {
 
         <tbody>
           {leaderboard?.map((metric, index) => {
-            const name = users?.find((user) => user.id === metric.user_id)
+            const name = users?.find((user) => user.id === metric.user_id);
             return (
               <tr key={index}>
-                <th scope="row" >{index + 1}</th>
+                <th scope="row">{index + 1}</th>
                 <td>{name?.username}</td>
                 <td>{metric.wins}</td>
                 <td>{metric.average_speed}</td>

@@ -4,11 +4,20 @@ import MetricsShow from "./MetricsShow";
 import { BrowserRouter } from "react-router-dom";
 
 describe("<MetricsShow />", () => {
-  it("renders without crashing", () => {
+  it("renders without crashing when signed out", () => {
     const div = document.createElement("div");
     render(
       <BrowserRouter>
         <MetricsShow />
+      </BrowserRouter>,
+      div
+    );
+  });
+  it("renders without crashing when signed in", () => {
+    const div = document.createElement("div");
+    render(
+      <BrowserRouter>
+        <MetricsShow logged_in={true} />
       </BrowserRouter>,
       div
     );
