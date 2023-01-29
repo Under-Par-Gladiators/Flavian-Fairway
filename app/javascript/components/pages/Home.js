@@ -6,34 +6,35 @@ const Home = (props) => {
 
   if (logged_in) {
     return (
-      <>
-        <h1>Home Page</h1>
+      <div className="home">
         <Button>
           <a href="/competitive">Competitive</a>
         </Button>
+        <br />
         <Button>
           <a href="/leaderboard">Leaderboard</a>
         </Button>
         <h6>
-          Descriptive text about us and our app, what you can find on our page,
-          and much more! Lorem ipsum a buncha filler text just tryna give this
-          thing a bit more substance
+          Welcome to Flavian Fairway. Keep track of your statistics and be
+          pitted against other users in competitive style for whatever it is you
+          do! Snowboarding, basketball, chess, you name it! Check out the
+          leaderboard and see if you can make your mark, player!
         </h6>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
-        <h1>Home Page</h1>
+      <div className="home">
         <Button>
           <a href="/leaderboard">Leaderboard</a>
         </Button>
         <h6>
-          Descriptive text about us and our app, what you can find on our page,
-          and much more! Lorem ipsum a buncha filler text just tryna give this
-          thing a bit more substance
+          Welcome to Flavian Fairway. Keep track of your statistics and be
+          pitted against other users in competitive style for whatever it is you
+          do! Snowboarding, basketball, chess, you name it! Check out the
+          leaderboard and see if you can make your mark, player!
         </h6>
-      </>
+      </div>
     );
   }
 };

@@ -17,36 +17,36 @@ const Navigation = ({
   sign_out_route,
 }) => {
   return (
-    <div>
+    <div className="nav">
       <Nav>
         <NavItem>
           <NavLink to="/" className="nav-link">
-            Flavian Fairway
+            <p className="logo">FLAVIAN FAIRWAY</p>
           </NavLink>
         </NavItem>
         {!logged_in && (
           <NavItem>
             <a href={sign_in_route} className="nav-link">
-              Login
+              <p className="navitem">Login</p>
             </a>
           </NavItem>
         )}
         {!logged_in && (
           <NavItem>
             <a href={new_user_route} className="nav-link">
-              Sign Up
+              <p className="navitem">Sign Up</p>
             </a>
           </NavItem>
         )}
         {!logged_in && (
           <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-              Pages
-            </DropdownToggle>
+            <DropdownToggle nav caret className="droparrow"></DropdownToggle>
             <DropdownMenu end>
               <DropdownItem>
                 <NavItem>
-                  <a href="/leaderboard">Leaderboard</a>
+                  <a href="/leaderboard" className="droptext">
+                    Leaderboard
+                  </a>
                 </NavItem>
               </DropdownItem>
             </DropdownMenu>
@@ -55,31 +55,33 @@ const Navigation = ({
         {logged_in && (
           <NavItem>
             <a href={`/metricsshow/${current_user.id}`} className="nav-link">
-              @{`${current_user.username}`}
+              <p className="navitem">@{`${current_user.username}`}</p>
             </a>
           </NavItem>
         )}
         {logged_in && (
           <NavItem>
             <a href={sign_out_route} className="nav-link">
-              Sign Out
+              <p className="navitem">Sign Out</p>
             </a>
           </NavItem>
         )}
         {logged_in && (
           <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-              Pages
-            </DropdownToggle>
+            <DropdownToggle nav caret className="droparrow"></DropdownToggle>
             <DropdownMenu end>
               <DropdownItem>
                 <NavItem>
-                  <a href="/competitive">Competitive</a>
+                  <a href="/competitive" className="droptext">
+                    Competitive
+                  </a>
                 </NavItem>
               </DropdownItem>
               <DropdownItem>
                 <NavItem>
-                  <a href="/leaderboard">Leaderboard</a>
+                  <a href="/leaderboard" className="droptext">
+                    Leaderboard
+                  </a>
                 </NavItem>
               </DropdownItem>
             </DropdownMenu>

@@ -27,7 +27,7 @@ const MetricEdit = ({ metrics, updateMetric, current_user }) => {
   };
 
   return (
-    <div>
+    <div className="edit-page">
       <h1>Edit Metrics</h1>
       <Form className="submitForm">
         <FormGroup>

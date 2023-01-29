@@ -23,16 +23,16 @@ const MetricsShow = (
 
   if (logged_in && !currentMetric) {
     return (
-      <>
+      <div className="show-page">
         <h3>Enter your information to get started my dude!</h3>
         <Button color="secondary">
           <a href="/metricsnew">Create</a>
         </Button>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div className="show-page">
         {currentMetric && (
           <div>
             <h1>Metrics Show</h1>
@@ -73,7 +73,7 @@ const MetricsShow = (
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
 };
