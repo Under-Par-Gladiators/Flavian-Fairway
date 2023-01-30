@@ -20,6 +20,7 @@ const LeaderBoard = ({ metrics }) => {
 
   return (
     <div className="leaderboard-page">
+      <h1 className="leader-text">Top 10 Leaderboard</h1>
       <Table hover size="">
         <thead>
           <tr>

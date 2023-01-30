@@ -7,14 +7,16 @@ const Home = (props) => {
   if (logged_in) {
     return (
       <div className="home">
-        <Button>
-          <a href="/competitive">Competitive</a>
-        </Button>
-        <br />
-        <Button>
-          <a href="/leaderboard">Leaderboard</a>
-        </Button>
-        <h6>
+        <div className="button-container">
+          <Button className="button1">
+            <a href="/competitive">Competitive</a>
+          </Button>
+          <br />
+          <Button className="button2">
+            <a href="/leaderboard">Leaderboard</a>
+          </Button>
+        </div>
+        <h6 className="description">
           Welcome to Flavian Fairway. Keep track of your statistics and be
           pitted against other users in competitive style for whatever it is you
           do! Snowboarding, basketball, chess, you name it! Check out the
@@ -24,16 +26,20 @@ const Home = (props) => {
     );
   } else {
     return (
-      <div className="home">
-        <Button>
-          <a href="/leaderboard">Leaderboard</a>
-        </Button>
-        <h6>
-          Welcome to Flavian Fairway. Keep track of your statistics and be
-          pitted against other users in competitive style for whatever it is you
-          do! Snowboarding, basketball, chess, you name it! Check out the
-          leaderboard and see if you can make your mark, player!
-        </h6>
+      <div>
+        <div className="home">
+          <div>
+            <Button className="button3">
+              <a href="/leaderboard">Leaderboard</a>
+            </Button>
+          </div>
+          <h6 className="description">
+            Welcome to Flavian Fairway. Keep track of your statistics and be
+            pitted against other users in competitive style for whatever it is
+            you do! Snowboarding, basketball, chess, you name it! Check out the
+            leaderboard and see if you can make your mark, player!
+          </h6>
+        </div>
       </div>
     );
   }

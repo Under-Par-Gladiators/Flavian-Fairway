@@ -14,7 +14,7 @@ import mannypic from "../assets/mannypic.png";
 const AboutUs = () => {
   return (
     <div className="about-page">
-      <h1>Who We Are</h1>
+      <h1 className="about-title">Who We Are</h1>
       <div className="cardLine">
         <Card
           style={{
@@ -22,7 +22,7 @@ const AboutUs = () => {
           }}
         >
           <img alt="Sample" src={blakepic} />
-          <CardBody>
+          <CardBody className="card-text">
             <CardTitle tag="h5">Blake Carta</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               Product Manager
@@ -53,7 +53,7 @@ const AboutUs = () => {
           }}
         >
           <img alt="Sample" src={tylerpic} />
-          <CardBody>
+          <CardBody className="card-text">
             <CardTitle tag="h5">Tyler Cahoon-Kasheta</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               Project Manager
@@ -87,7 +87,7 @@ const AboutUs = () => {
           }}
         >
           <img alt="Sample" src={mannypic} />
-          <CardBody>
+          <CardBody className="card-text">
             <CardTitle tag="h5">Manuel Espinoza</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               Tech Lead
@@ -97,9 +97,8 @@ const AboutUs = () => {
               always been passionate about computers, gaming, and building
               things. Previous work in the food service industry has solidified
               my communication, conflict resolution, and problem-solving skills
-              while also placing an emphasis on teamwork. Moving forward I plan
-              to find myself in a tech position in a suitable industry, so stay
-              tuned to see what I’m doing!
+              while also placing an emphasis on teamwork. Stay tuned to see my
+              work unfold!
             </CardText>
             <Button>
               <a href="https://github.com/manny-espinoza" target="_blank">
@@ -122,7 +121,7 @@ const AboutUs = () => {
           }}
         >
           <img alt="Handsome Design Lead" src="https://picsum.photos/300/200" />
-          <CardBody>
+          <CardBody className="card-text">
             <CardTitle tag="h5">Immanuel P.</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
               Design Lead
