@@ -10,6 +10,7 @@ import {
 import blakepic from "../assets/blakepic.png";
 import tylerpic from "../assets/tylerpic.png";
 import mannypic from "../assets/mannypic.png";
+import immanuelpic from "../assets/immanuelpic.png";
 
 const AboutUs = () => {
   return (
@@ -21,7 +22,7 @@ const AboutUs = () => {
             width: "18rem",
           }}
         >
-          <img alt="Sample" src={blakepic} />
+          <img alt="Product Manager" src={blakepic} />
           <CardBody className="card-text">
             <CardTitle tag="h5">Blake Carta</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -52,7 +53,7 @@ const AboutUs = () => {
             width: "18rem",
           }}
         >
-          <img alt="Sample" src={tylerpic} />
+          <img alt="Project Manager" src={tylerpic} />
           <CardBody className="card-text">
             <CardTitle tag="h5">Tyler Cahoon-Kasheta</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -86,7 +87,7 @@ const AboutUs = () => {
             width: "18rem",
           }}
         >
-          <img alt="Sample" src={mannypic} />
+          <img alt="Tech Lead" src={mannypic} />
           <CardBody className="card-text">
             <CardTitle tag="h5">Manuel Espinoza</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -120,7 +121,7 @@ const AboutUs = () => {
             width: "18rem",
           }}
         >
-          <img alt="Handsome Design Lead" src="https://picsum.photos/300/200" />
+          <img alt="Handsome Design Lead" src={immanuelpic} />
           <CardBody className="card-text">
             <CardTitle tag="h5">Immanuel P.</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
