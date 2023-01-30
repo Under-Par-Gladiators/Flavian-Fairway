@@ -88,7 +88,6 @@ const Navigation = ({
           </UncontrolledDropdown>
         )}
       </Nav>
-      <hr />
     </div>
   );
 };
