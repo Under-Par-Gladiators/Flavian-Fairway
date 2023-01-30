@@ -92,7 +92,7 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) => {
 
   const winLogic = () => {
     if (counter > 0) {
-      setWinText("Victory! Wins + 1");
+      setWinText("Victory! +1 Win");
       prepUpdate();
       buttonCounterPlus();
     } else {
@@ -144,17 +144,15 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) => {
   if (logged_in === true) {
     return (
       <div className="competitive-page">
-        <div className="competeText">
-          <h1>Test your mettle!</h1>
-          <br />
-          <p>
+        <div>
+          <h1 className="mettle">Test Your Mettle!</h1>
+          <p className="compete-sentence">
             Ready to see how you stack up to your peers? Simply click the
             compete button to compare against another shredder. If you got the
             better numbers, you earn a win. Win enough, and maybe you end up on
             the leaderboards for some bragging rights
           </p>
-          <br />
-          <h1>{winText}</h1>
+          <h1 className="win-text">{winText}</h1>
         </div>
         <div className="cardLine">
           {yourMetric && (
@@ -165,27 +163,31 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) => {
             >
               <CardHeader>{current_user.username}</CardHeader>
               <ListGroup flush>
-                <ListGroupItem>Location:{yourMetric.location}</ListGroupItem>
-                <ListGroupItem>Run:{yourMetric.name_of_run}</ListGroupItem>
+                <ListGroupItem>Location: {yourMetric.location}</ListGroupItem>
+                <ListGroupItem>Run: {yourMetric.name_of_run}</ListGroupItem>
                 <ListGroupItem>
-                  Difficulty:{yourMetric.run_difficulty}
+                  Difficulty: {yourMetric.run_difficulty}
                 </ListGroupItem>
                 <ListGroupItem>
-                  Elevation change:{yourMetric.elevation_change}
+                  Elevation Change: {yourMetric.elevation_change}
                 </ListGroupItem>
                 <ListGroupItem>
-                  Avg speed:{yourMetric.average_speed}
+                  Average Speed: {yourMetric.average_speed}
                 </ListGroupItem>
                 <ListGroupItem>
-                  Total runs:{yourMetric.number_of_runs}
+                  Total Runs: {yourMetric.number_of_runs}
                 </ListGroupItem>
-                <ListGroupItem>Smack talk:{yourMetric.comment}</ListGroupItem>
+                <ListGroupItem>Smack Talk: {yourMetric.comment}</ListGroupItem>
               </ListGroup>
             </Card>
           )}
           <div className="battleButtons">
-            <button onClick={showRandom} disabled={randoMetrics !== null}>
-              Find opponent
+            <button
+              onClick={showRandom}
+              disabled={randoMetrics !== null}
+              className="opponent-button"
+            >
+              Find Opponent
             </button>
             <button
               onClick={handleClick}
@@ -202,13 +204,15 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) => {
             >
               <CardHeader>Opponent</CardHeader>
               <ListGroup flush>
-                <ListGroupItem>Location:{randoMetrics.location}</ListGroupItem>
-                <ListGroupItem>Run:{runText}</ListGroupItem>
-                <ListGroupItem>Difficulty:{difficultyText}</ListGroupItem>
-                <ListGroupItem>Elevation change:{elevationText}</ListGroupItem>
-                <ListGroupItem>Avg speed:{speedText}</ListGroupItem>
-                <ListGroupItem>Total runs:{totalrunsText}</ListGroupItem>
-                <ListGroupItem>Smack talk:{randoMetrics.comment}</ListGroupItem>
+                <ListGroupItem>Location: {randoMetrics.location}</ListGroupItem>
+                <ListGroupItem>Run: {runText}</ListGroupItem>
+                <ListGroupItem>Difficulty: {difficultyText}</ListGroupItem>
+                <ListGroupItem>Elevation Change: {elevationText}</ListGroupItem>
+                <ListGroupItem>Average Speed: {speedText}</ListGroupItem>
+                <ListGroupItem>Total Runs: {totalrunsText}</ListGroupItem>
+                <ListGroupItem>
+                  Smack Talk: {randoMetrics.comment}
+                </ListGroupItem>
               </ListGroup>
             </Card>
           )}

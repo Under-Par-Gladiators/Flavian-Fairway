@@ -93,7 +93,7 @@ const MetricEdit = ({ metrics, updateMetric, current_user }) => {
             placeholder={currentMetric?.comment}
           />
         </FormGroup>
-        <Button onClick={handleSubmit} name="submit">
+        <Button onClick={handleSubmit} name="submit" className="submit-button">
           Submit New Metrics
         </Button>
       </Form>

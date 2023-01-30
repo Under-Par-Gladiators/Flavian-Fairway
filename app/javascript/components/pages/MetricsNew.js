@@ -29,7 +29,7 @@ const MetricsNew = ({ createMetric, current_user }) => {
   return (
     <div className="new-page">
       <h1>Create Metrics</h1>
-      <Form>
+      <Form className="submitForm">
         <FormGroup>
           <Label for="location">Location</Label>
           <Input
@@ -93,7 +93,7 @@ const MetricsNew = ({ createMetric, current_user }) => {
             type="text"
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={handleSubmit} className="submit-button">Submit</Button>
       </Form>
     </div>
   );

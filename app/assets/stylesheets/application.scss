@@ -16,24 +16,20 @@
 
 @import "bootstrap";
 
-.competeText {
-  text-align: center;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
+.about-page,
+.competitive-page,
+.home,
+.leaderboard-page,
+.edit-page,
+.new-page,
+.show-page,
+.error-page {
+  margin-top: 80px;
 }
 
-.battleButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cardLine {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 5vh;
+body {
+  background-image: url("https://images.pexels.com/photos/714258/pexels-photo-714258.jpeg");
+  background-size: 1500px 1000px;
 }
 
 .nav {
@@ -43,19 +39,26 @@
   top: 0;
   background-color: #264670;
   justify-content: space-evenly;
+  border-bottom: solid white 3px;
+  z-index: 1;
 }
 
-.nav .navitem {
-  font-size: large;
+.logo {
+  font-size: 30px;
+  padding: 6px 0;
+}
+
+.navitem {
+  padding: 16px 0;
+}
+
+.droparrow {
+  padding: 24px 0;
 }
 
 .nav-link,
 .droparrow {
   color: white;
-}
-
-.logo {
-  font-size: 30px;
 }
 
 .droptext {
@@ -80,27 +83,38 @@
   text-decoration: none;
 }
 
-.about-page,
-.competitive-page,
-.home,
-.leaderboard-page,
-.edit-page,
-.new-page,
-.show-page,
-.error-page {
+.home {
+  min-height: 82vh;
+  display: flex;
+  justify-content: space-around;
   margin-top: 80px;
 }
 
-.home {
-  min-height: 82vh;
+.button-container {
+  margin-top: 100px;
 }
 
-.home Button {
+.button1,
+.button2,
+.button3 {
   font-size: large;
   background-color: #264670;
   padding: 10px 30px 10px 30px;
   border-radius: 40px;
   justify-content: center;
+  font-weight: 200;
+}
+
+.button1 {
+  margin-top: 40px;
+}
+
+.button2 {
+  margin-top: 40px;
+}
+
+.button3 {
+  margin-top: 140px;
 }
 
 .home a {
@@ -109,13 +123,270 @@
   font-size: 40px;
 }
 
-.home h6 {
+.description {
+  background: #264670;
+  width: 445px;
+  height: 300px;
+  padding: 44px 20px 0px 20px;
+  color: white;
+  font-size: x-large;
+  justify-content: center;
+  text-align: center;
+  border-radius: 45px;
+  font-weight: 200;
+  margin-top: 100px;
+}
+
+.about-title {
+  background-color: white;
+  opacity: 0.5;
+  color: black;
+  width: 270px;
+  height: 70px;
+  padding-top: 10px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 100px auto 20px auto;
+  font-weight: 200;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-text Button {
+  margin: 0px 10px 0px 10px;
+  background-color: #a7b6cb;
+}
+
+.card-text a {
+  color: #264670;
+  text-decoration: none;
+}
+
+.competitive-page {
+  min-height: 82vh;
+}
+
+.mettle {
+  background-color: #737373;
+  opacity: 0.8;
+  color: black;
+  width: 350px;
+  height: 60px;
+  padding-top: 7px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 100px auto 0 auto;
+  font-weight: 200;
+}
+
+.compete-sentence {
+  max-width: 500px;
+  background-color: #737373;
+  opacity: 0.8;
+  color: black;
+  padding: 14px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px auto;
+  font-weight: 200;
+}
+
+.win-text {
+  background-color: #737373;
+  opacity: 0.8;
+  color: black;
+  width: 500px;
+  height: 60px;
+  padding-top: 5px;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 20px;
+  font-weight: 200;
+}
+
+.battleButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cardLine {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: top;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+
+.battleButtons button {
+  background-color: #737373;
+  border: solid black;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.opponent-button {
+  margin-top: 110px;
+}
+
+.leaderboard-page {
+  min-height: 79vh;
+}
+
+.leader-text {
+  background-color: #737373;
+  opacity: .8;
+  color: black;
+  width: 500px;
+  height: 54px;
+  border-radius: 30px;
+  text-align: center;
+  padding-top: 1px;
+  margin: 100px auto 40px auto;
+  font-weight: 200;
+}
+
+.leaderboard-page Table {
+  text-align: center;
+  margin: 0 auto;
+  background-color: grey;
+  opacity: 0.9;
+}
+
+.show-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 130px;
+}
+
+.show-page {
+  min-height: 75vh;
+}
+
+.show-page-out {
+  margin-top: 80px;
+  min-height: 64vh;
+  text-align: center;
+}
+
+.show-page-out h3 {
+  background-color: #737373;
+  opacity: .8;
+  color: white;
+  width: 375px;
+  height: 100px;
+  font-weight: 200;
+  margin: 220px auto 100px auto;
+  text-align: center;
+  padding-top: 17px;
+  border-radius: 20px;
+}
+
+.create-button {
+  color: #264670;
+  text-decoration: none;
+}
+
+.show-page Button,
+.show-page-out Button {
+  background-color: #a7b6cb;
+  width: 225px;
+  height: 70px;
+  border: solid #264670 1.5px;
+  border-radius: 10px;
+}
+
+.edit-button,
+.delete-button {
+  color: #264670;
+  text-decoration: none;
+}
+
+.delete-button {
+  margin-top: 40px;
+}
+
+.metric-buttons {
+  margin-top: 80px;
+}
+
+.metric-title {
+  background-color: #264670;
+  color: white;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 20px;
+  font-weight: 200;
+  margin-left: 98px;
+  margin-bottom: 16px;
+  border: solid white 1px;
+}
+
+.metric-entries {
   background-color: #264670;
   color: white;
   width: 400px;
+  height: 40px;
   text-align: center;
-  padding: 40px;
-  font-size: 24px;
-  border-radius: 30px;
-  right: 40px;
+  padding-top: 8px;
+  border-radius: 10px;
+  border: solid white 1px;
+}
+
+.edit-page h1,
+.new-page h1 {
+  background-color: #264670;
+  color: white;
+  width: 250px;
+  height: 70px;
+  text-align: center;
+  padding-top: 11px;
+  border-radius: 20px;
+  border: solid white 1px;
+  margin: 100px auto 20px auto;
+  font-weight: 200;
+}
+
+.submitForm {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.submitForm Label {
+  background-color: #a7b6cb;
+  color: #264670;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  padding-top: 3px;
+  border-radius: 10px;
+  border: solid #264670 1px;
+}
+
+.submit-button {
+  margin-bottom: 20px;
+  background: #264670;
+  color: white;
+}
+
+.error-page h3 {
+  background-color: #264670;
+  color: white;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  font-size: xxx-large;
+  font-weight: 300;
+  padding-top: 27px;
+  margin: 200px auto 0 auto;
+  border-radius: 40px;
+}
+
+.error-page {
+  min-height: 66vh;
 }
