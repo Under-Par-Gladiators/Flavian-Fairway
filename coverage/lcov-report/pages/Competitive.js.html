@@ -286,7 +286,11 @@
 <a name='L221'></a><a href='#L221'>221</a>
 <a name='L222'></a><a href='#L222'>222</a>
 <a name='L223'></a><a href='#L223'>223</a>
-<a name='L224'></a><a href='#L224'>224</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -431,6 +435,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -603,7 +611,7 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) =&gt; {
 &nbsp;
   const winLogic = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (counter &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >      setWinText("Victory! Wins + 1");</span>
+<span class="cstat-no" title="statement not covered" >      setWinText("Victory! +1 Win");</span>
 <span class="cstat-no" title="statement not covered" >      prepUpdate();</span>
 <span class="cstat-no" title="statement not covered" >      buttonCounterPlus();</span>
     } else {
@@ -654,18 +662,16 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) =&gt; {
 &nbsp;
   if (logged_in === true) {
     return (
-      &lt;&gt;
-        &lt;div className="competeText"&gt;
-          &lt;h1&gt;Test your mettle!&lt;/h1&gt;
-          &lt;br /&gt;
-          &lt;p&gt;
+      &lt;div className="competitive-page"&gt;
+        &lt;div&gt;
+          &lt;h1 className="mettle"&gt;Test Your Mettle!&lt;/h1&gt;
+          &lt;p className="compete-sentence"&gt;
             Ready to see how you stack up to your peers? Simply click the
             compete button to compare against another shredder. If you got the
             better numbers, you earn a win. Win enough, and maybe you end up on
             the leaderboards for some bragging rights
           &lt;/p&gt;
-          &lt;br /&gt;
-          &lt;h1&gt;{winText}&lt;/h1&gt;
+          &lt;h1 className="win-text"&gt;{winText}&lt;/h1&gt;
         &lt;/div&gt;
         &lt;div className="cardLine"&gt;
           {yourMetric &amp;&amp; (
@@ -676,27 +682,31 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) =&gt; {
             &gt;
               &lt;CardHeader&gt;{current_user.username}&lt;/CardHeader&gt;
               &lt;ListGroup flush&gt;
-                &lt;ListGroupItem&gt;Location:{yourMetric.location}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Run:{yourMetric.name_of_run}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Location: {yourMetric.location}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Run: {yourMetric.name_of_run}&lt;/ListGroupItem&gt;
                 &lt;ListGroupItem&gt;
-                  Difficulty:{yourMetric.run_difficulty}
+                  Difficulty: {yourMetric.run_difficulty}
                 &lt;/ListGroupItem&gt;
                 &lt;ListGroupItem&gt;
-                  Elevation change:{yourMetric.elevation_change}
+                  Elevation Change: {yourMetric.elevation_change}
                 &lt;/ListGroupItem&gt;
                 &lt;ListGroupItem&gt;
-                  Avg speed:{yourMetric.average_speed}
+                  Average Speed: {yourMetric.average_speed}
                 &lt;/ListGroupItem&gt;
                 &lt;ListGroupItem&gt;
-                  Total runs:{yourMetric.number_of_runs}
+                  Total Runs: {yourMetric.number_of_runs}
                 &lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Smack talk:{yourMetric.comment}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Smack Talk: {yourMetric.comment}&lt;/ListGroupItem&gt;
               &lt;/ListGroup&gt;
             &lt;/Card&gt;
           )}
           &lt;div className="battleButtons"&gt;
-            &lt;button onClick={showRandom} disabled={randoMetrics !== null}&gt;
-              Find opponent
+            &lt;button
+              onClick={showRandom}
+              disabled={randoMetrics !== null}
+              className="opponent-button"
+            &gt;
+              Find Opponent
             &lt;/button&gt;
             &lt;button
               onClick={handleClick}
@@ -713,18 +723,20 @@ const Competitive = ({ logged_in, current_user, metrics, updateMetric }) =&gt; {
             &gt;
               &lt;CardHeader&gt;Opponent&lt;/CardHeader&gt;
               &lt;ListGroup flush&gt;
-                &lt;ListGroupItem&gt;Location:{randoMetrics.location}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Run:{runText}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Difficulty:{difficultyText}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Elevation change:{elevationText}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Avg speed:{speedText}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Total runs:{totalrunsText}&lt;/ListGroupItem&gt;
-                &lt;ListGroupItem&gt;Smack talk:{randoMetrics.comment}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Location: {randoMetrics.location}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Run: {runText}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Difficulty: {difficultyText}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Elevation Change: {elevationText}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Average Speed: {speedText}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;Total Runs: {totalrunsText}&lt;/ListGroupItem&gt;
+                &lt;ListGroupItem&gt;
+                  Smack Talk: {randoMetrics.comment}
+                &lt;/ListGroupItem&gt;
               &lt;/ListGroup&gt;
             &lt;/Card&gt;
           )}
         &lt;/div&gt;
-      &lt;/&gt;
+      &lt;/div&gt;
     );
   } else {
     return &lt;h1&gt;Must be logged in to access competition&lt;/h1&gt;;
@@ -739,7 +751,7 @@ export default Competitive;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-28T19:17:56.198Z
+                at 2023-01-30T04:06:34.591Z
             </div>
         <script src="../prettify.js"></script>
         <script>

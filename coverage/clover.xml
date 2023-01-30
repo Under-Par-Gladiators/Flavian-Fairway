@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674933476281" clover="3.2.0">
-  <project timestamp="1674933476282" name="All files">
+<coverage generated="1675051594638" clover="3.2.0">
+  <project timestamp="1675051594638" name="All files">
     <metrics statements="140" coveredstatements="78" conditionals="50" coveredconditionals="27" methods="44" coveredmethods="14" elements="234" coveredelements="119" complexity="0" loc="140" ncloc="140" packages="2" files="10" classes="10"/>
     <package name="components2">
       <metrics statements="6" coveredstatements="6" conditionals="12" coveredconditionals="10" methods="3" coveredmethods="3"/>
@@ -107,7 +107,7 @@
         <line num="139" count="0" type="stmt"/>
         <line num="144" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="145" count="1" type="stmt"/>
-        <line num="219" count="1" type="stmt"/>
+        <line num="223" count="1" type="stmt"/>
       </file>
       <file name="Home.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/Home.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -115,7 +115,7 @@
         <line num="5" count="2" type="stmt"/>
         <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
       </file>
       <file name="LeaderBoard.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/LeaderBoard.js">
         <metrics statements="13" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
@@ -130,8 +130,8 @@
         <line num="16" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
       </file>
       <file name="MetricsEdit.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/MetricsEdit.js">
         <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
@@ -170,7 +170,7 @@
         <line num="24" count="3" type="cond" truecount="4" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
       </file>
       <file name="NotFound.js" path="/Users/learnacademy/Desktop/Flavian-Fairway/app/javascript/components/pages/NotFound.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
