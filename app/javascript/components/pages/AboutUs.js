@@ -128,9 +128,9 @@ const AboutUs = () => {
               Design Lead
             </CardSubtitle>
             <CardText>
-              Transitioning into a new career. Have many concepts and ideas that
-              can be brought fourth through technology. Passionate about
-              learning...looking forward to the future.
+              Transitioning into a new career; many concepts and ideas that
+              I would like to be bring forth through technology. Passionate about
+              learning everyday...looking forward to the future.
             </CardText>
             <Button>
               <a href="https://github.com/Mannyplg" target="_blank">
